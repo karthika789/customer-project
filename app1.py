@@ -15,7 +15,7 @@ from PIL import Image
 
 
 
-# model = joblib.load("‪C:\Users\jaswa\Downloads\customer.pkl")
+
 model = joblib.load('customer.pkl')
 
 
@@ -25,9 +25,9 @@ def web_app():
     # Customer Behaviour Analysis with Machine Learning
     ## This app predicts to which category a customer belongs too
    """)
-    image = Image.open("C:/Users/karthika2001/Downloads/customer behaviour.png")
+    
 
-    st.image(image, caption='Customer Behaviour Analysis')
+
 
     
     st.header("User Details")
@@ -44,13 +44,13 @@ def web_app():
         result = model.predict([[INCOME,AGE,Month_Customer,TotalSpendings,
                                 Children]])
         if result == 0:
-            result = "Group 1"
+            result = "Group A"
         elif result == 1: 
-            result = "Group 2"
+            result = "Group B"
         elif result == 2: 
-            result = "Group 3"
+            result = "Group C"
         else : 
-            result = "Group 4"
+            result = "Group D"
         
         
         st.text_area(label='Category belongs to:- ',value=result , height= 100)
